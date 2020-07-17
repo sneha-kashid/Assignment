@@ -1,0 +1,33 @@
+
+						Assignment –2 
+					Introducing Relational Databases. 
+
+
+
+1) Which field of the Customers table is the primary key? 
+-> Cnum is the primary key
+ 
+
+2) What is the 4th column of the Customers table? 
+-> Rating is the 4th column of the Customers table
+
+
+3) What is another word for row?  For column? 
+-> Row - Tuple 
+	 Entity
+	 Opportunity
+
+  Column - Attribute 
+	   Method 
+
+ 
+4) Why isn’t it possible to see the first five rows of a table? 
+-> - Rows of a table are not stored sequentially
+   - Rows of a table are scattered (fragmentated) all over the database server Hard disk 
+   - When you insert into a table wherever  the system finds the free space in the database server HD, it will store 
+     the row there the reason that RDBMS does this is to speed up the insert statement
+   - When you select a table , the order of row in the output depends on the row address
+   - When you update a row , if the row length is increasing , then the entire row may be moved to some 
+     other address later when you select from the table,you will find the row at some other position in the output.
+   - It's only in the case of varchar that the row length may increase or decrease
+   - Hence , it is not possible to view 1st and last 'N' row of a table. 

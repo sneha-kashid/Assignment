@@ -1,0 +1,150 @@
+show databases;
+use day_1;
+ 
+ 
+ 
+#------------1------------------------------ 
+ 
+ 
+  Create  table SEMP 
+ (
+EMPNO CHAR(4),   
+EMPNAME CHAR(20),
+BASIC FLOAT(9,2),     
+DEPTNO CHAR(2),    
+DEPTHEAD CHAR(4) 
+ );
+ 
+ #----------------------3---------------------------
+ 
+ insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO)
+ values('0001', 'SUNIL','6000', '10 ');
+ 
+ select * from SEMP;
+ 
+ insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO)
+ values('0002', 'HIREN', 8000, '20' );
+ 
+ insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+ values('0003', 'ALI', 4000, '10', '0001' ) ;
+ 
+  insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTHEAD)
+  values('0004', 'GEORGE', 6000, '0002');
+  
+  
+  #-------------------------------------2----------------------
+  
+  
+  Create table SDEPT
+  (
+  DEPTNO CHAR(2) ,    
+  DEPTNAME CHAR(15) );
+  
+  
+  #-------------------------4--------------------------------
+  
+  insert into SDEPT(DEPTNO,DEPTNAME)
+  values('10', 'Development' ),
+		('20', 'Training' );
+        
+        
+
+
+create table S
+(
+`S#` char(2), 
+ Sname varchar(10), 
+Status1 varchar(10), 
+ City varchar(10));
+ 
+ create table P
+ (
+`P#` char(2), 
+Pname varchar(10), 
+Color varchar(10), 
+Weight varchar(10), 
+City varchar(10)
+
+ );
+ 
+ 
+ create table J 
+ (
+	`J#` char(2), 
+    Jname varchar(10),
+    City varchar(10)
+ );
+ 
+ 
+ create table SPJ
+ (
+	`S#` char(2),  
+    `P#` char(2), 
+    `J#` char(2), 
+     Qty int(4)
+ );
+ 
+ insert into S ()
+ values('S1','Jack','10','London');
+ 
+ 
+ insert into S (`S#` , Sname, Status1, City )
+ values('S2','Emma','20','Paris'),('S3','Monica','30','Athens'),('S4','Rachel','40','London'),
+ ('S5','Ross','50','London'),('S6','Chandler','60','Athens'),('S7','Phoebe','70','Paris'),('S8','Joey','80','London');
+ 
+ 
+ 
+ insert into P (`P#` , Pname, Color, weight,City )
+ values('P1','Harry','Pink','10','Paris'),('P2','Ron','Blue','11','London'),('P3','Draco','Blue','12','London'),
+ ('P4','Voldemort','Pink','13','Paris'),('P5','Harmione','Green','14','Athens'),('P6','Hagrid','Pink','15','Paris'),
+ ('P7','Luna','Green','20','Athens'),('P8','Ginny','Green','13','Athens');
+ 
+ select * from P;
+ 
+ 
+ insert into J (`J#` , Jname,City )
+ values('J1','Jon','London'),('J2','Arya','Athens'),('J3','Ryuk','Paris'),
+ ('J4','Misa','Paris'),('J5','Mello','London'),('J6','Ben','London'),
+ ('J7','Sayu','Athens'),('J8','Gunter','Athens');
+ 
+ 
+ select * from J;
+ 
+ #---------------------------5-----------------------------
+ select * from S;
+ 
+ 
+ #----------------------------6----------------------------
+ select `S#` ,Sname from S;
+ 
+ 
+ #--------------------------7-----------------------------
+ select pname ,color from p where city="London";
+ 
+ 
+ #-------------------------8------------------------------
+ select sname from S where city="London";
+ 
+ 
+ #-------------------------9---------------------------------
+ select Sname from S where city='Paris' or city='Athens';
+ 
+ 
+ #10. Display all the Projects in Athens. -------------------------------------
+ SELECT * FROM J WHERE CITY="Athens";
+ 
+ #11. Display all the Partnames with the weight between 12 and 14 (inclusive of both). 
+ select weight from P where weight >= 12 and weight <=14; 
+ 
+ #12.Display all the Suppliers with a Status greater than or equal to 20. 
+ select * from S where status1 >= 20;
+ 
+ #13. Display all the Suppliers except the Suppliers from London
+ select * from S where city != 'London';
+ 
+ #14. Display only the Cities from where the Suppliers come from. 
+ select city from S;
+ 
+ use database day_1;
+ show databases;
+ use day_1;
