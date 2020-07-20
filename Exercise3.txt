@@ -1,0 +1,35 @@
+use day_1;
+
+
+#1. Display all the Supplier names with the initial letter capital.   
+SELECT  CONCAT(UCASE(MID(Sname,1,1)),LCASE(MID(Sname,2))) AS Sname FROM S ;
+
+#2. Display all the Supplier names in upper case. 
+select Upper(Sname) From S;
+
+#3. Display all the Supplier names in lower case.   
+select lower(Sname) from S;
+
+#5. Display all the Supplier names (with ‘la’ replaced by ‘ro’).      
+select replace(Sname,'la','ro') from S;
+
+#7. Display the Supplier names and the lengths of the names. 
+select sname ,length(Sname) from S;
+
+#8. Use the soundex function to search for a supplier by the name of ‘BLOKE’. 
+select * from S where soundex(Sname)=soundex('BLOKE');
+
+#4. Display all the Supplier names padded to 25 characters, with spaces on the left. 
+select lpad(Sname, 25 , ' ' ) as left_padding from S;
+
+
+
+#10. Display the current day 
+select dayname(now()) from dual;
+
+select dayname(curdate()) from dual;
+
+
+
+#6. Implement the above command such that ‘l’ is replaced with ‘r’ and ‘a’ is replaced with ‘o’.   
+select replace(Sname,'l','r') AS Rep_l_to_r , replace(sname,'a','o') AS Rep_a_to_o from S;
