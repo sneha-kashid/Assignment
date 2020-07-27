@@ -1,0 +1,38 @@
+#1. Display the minimum Status in the Supplier table. 
+select min(Status1) from S;
+
+
+#2. Display the maximum Weight in the Parts table.  
+select max(weight) from p;
+
+#3. Display the average Weight of the Parts.   
+select avg(weight) from p;
+
+#4. Display the total Quantity sold for part ‘P1’
+select qty from spj where `P#`='P1';
+
+#5. Display the total Quantity sold for each part.   
+select sum(qty),`p#` from spj group by `p#`;
+
+#6. Display the average Quantity sold for each part. 
+select avg(qty),`p#` from spj group by `p#`;
+
+#7. Display the maximum Quantity sold for each part, provided the maximum Quantity is greater than 800. 
+select max(qty),`p#` from spj where qty > 800  group by `p#`;
+
+#8. Display the Status and the count of Suppliers with that Status. 
+select status1 , count(sname) from S group by status1;
+
+#9. Display the count of Projects going on in different cities.
+#select  distinct city ,count(jname) from  J group by jname; 
+select city,count(*) from j group by city;
+
+#11
+select case
+when status1 = 10 then 'Ten'
+when status1 = 20 then 'Twenty'
+when status1 = 30 then 'Thirty'
+when status1 = 40 then 'Fourty'
+when status1 = 50 then 'Fifty'
+else 'Others'
+end , count(*) from s group by status1;
