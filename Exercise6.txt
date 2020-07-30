@@ -1,0 +1,47 @@
+#1. Display all the Suppliers with the same Status as the supplier, ‘CLARK’. 
+
+use day_1;
+
+select * from p;
+select * from s;
+select * from j;
+select * from spj;
+
+
+
+#2. Display all the Employees in the same department as the employee ‘MILLER’.   
+select * from dept where deptno=
+(select deptno from dept where ename = 'MILLER');
+
+#3. Display all the Parts which have more Weight than all the Red parts
+select * from p where  weight > 
+(select max(weight) from p
+where color='Red');
+
+
+#4. Display all the Projects going on in the same city as the project ‘TAPE’.   
+select * from j where city=
+ (select city from j where jname='TAPE');
+
+
+
+# 5. Display all the Parts with Weight less than all the Green parts. 
+select * from p where  weight <
+(select max(weight) from p
+where color='Green');
+
+#6. Display the name of the Supplier who has sold the maximum Quantity (in one sale).   
+# using sub query
+select sname,max(qty) from s,spj where qty =
+(select max(qty) from spj);
+
+
+#using join
+select sname ,max(qty) from s,spj where s.`S#` = spj.`S#`;
+
+#7. Display the name of the Employee with the minimum Salary.   
+select ename from emp where sal=(select min(sal) from emp);
+
+#8. Display the name of the Supplier who has sold the maximum overall Quantity (sum of Sales). 
+select distinct sname  ,qty from s,spj where qty > 
+(select sum(qty) from spj);
